@@ -1,0 +1,6 @@
+opencv-python-headless
+mediapipe
+numpy
+Pillow
+ipywidgets
+matplotlib
