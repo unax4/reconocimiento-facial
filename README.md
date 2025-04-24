@@ -5,17 +5,17 @@ Para dar una aplicación práctica a los modelos ademas se ha desarrollado un pr
 
 ## Uso
 
-En el directorio raiz se encuentra el archivo 'mediapipe_facedetector', que es con el cual se han preprocesado las caras de la base de datos de VGGFaces2.
+En el directorio raiz se encuentra el archivo `mediapipe_facedetector.py`, que es con el cual se han preprocesado las caras de la base de datos de VGGFaces2.
 
 El directorio `Databases` solo está la base de datos usada en la cámara, debido a que las que se usan en el trabajo son de tamaño demasiado grande. Estas en cambio se pueden descargar en los siguientes enlaces: http://cvc.cs.yale.edu/cvc/projects/yalefacesB/yalefacesB.html y https://www.kaggle.com/datasets/hearfool/vggface2 
 
-Dentro del directorio 'modelos' se encuentran las funciones usadas en los dos metodos basados en PCA junto con los 'main' donde se ejecutan, y también la red neuronal convolucional entrenada en su archivo respectivo. Asi los modelos usados son los siguientes:
+Dentro del directorio `modelos` se encuentran las funciones usadas en los dos metodos basados en PCA junto con los `main` donde se ejecutan, y también la red neuronal convolucional entrenada en su archivo respectivo. Asi los modelos usados son los siguientes:
 1. Eigenfaces
 2. Eigenfaces Bayesiano
 3. Redes neuronales convolucionales.
 Para cada modelo primero se ha realizado un ajuste de hiperparámetros, seguida de una validación cruzada.
 
-El la carpets 'resultados' se pueden ver las figuras consegidas tanto como en las validación cruzadas y ajustes de hiperparametros que se han hecho, como los resultados de exactitud y perdida conseguidos época a época en el caso del modelo de CNN.
+El la carpeta `resultados` se pueden ver las figuras consegidas tanto como en las validación cruzadas y ajustes de hiperparametros que se han hecho, como los resultados de exactitud y perdida conseguidos época a época en el caso del modelo de CNN.
 
 Por último, en el directorio raíz también se encentra el archivo con el que se lanza el programa de detección via web cam.
 
