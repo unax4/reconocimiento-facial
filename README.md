@@ -1,19 +1,19 @@
 # Técnicas de aprendizaje automático paratareas de reconocimiento facial
 
-Este repositorio complementa mi Trabajo de Fin de Grado, que ha consistido en entrenar varios **modelos de aprendizaje automático** para que sean capaces de clasificar imágenes de **caras**. Se han utilizado imágenes de la base de datos [HASY](https://arxiv.org/pdf/1701.08380), que cuenta con símbolos de 369 clases distintas. Tras entrenar y evaluar los modelos, se ha construido una demo que permite interactuar con el sistema que mejor rendimiento ha tenido.
+Este repositorio complementa mi Trabajo de Fin de Grado, que ha consistido en entrenar varios **modelos de aprendizaje automático** para que sean capaces de clasificar imágenes de caras. Se han utilizado dos bases de datos, la de YaleB, con solo 37 clases  y 2480 fotos, siendo la más pequeña, y una versión adaptada de VGGFaces2, con un total de 534 clases y 94600 muestras en total, siendo además esta última base de datos desequilibrada.
+Para dar una aplicación práctica a los modelos ademas se ha desarrollado un programa con una interfaz gráfica capaz de hacer reconocimiento facial en vivo mediante el uso de una camara. La interfaz además permite editar la base de datos, añadir nuevas clases y elegir entre los dos modelos de PCA para ver cual funciona mejor. Como ejemplo se ha añadido una base de datos para uso exclusivo de la cámara donde ya hay añadidas unas 40 clases, por lo que el usuario puede añadir a esta fotos suyas para ver si los modelos son capaz de reconocerle.
 
 ## Uso
 
-El directorio `Databases` contiene las bases de datos con las que se han entrenado los modelos. En el directorio `HASY` se encuentran los archivos relativos a la base de datos original. `hasy_tools.py` contiene las funciones escritas por el autor de la base de datos HASY, que se han actualizado y modificado según los objetivos de este proyecto. Las versiones actualizadas están en el archivo `hasy_tools_updated.py`. En la segunda parte del trabajo ha sido necesario utilizar métodos de aumento de datos para obtener una base de datos en la que todas las clases tienen el mismo número de muestras. Todo lo relacionado con este proceso se puede encontrar en `Data Augmentation`.
+El directorio `Databases` solo está la base de datos usada en la cámara, debido a que las que se usan en el trabajo son de tamaño demasiado grande. Estas en cambio se pueden descargar en los siguientes enlaces: http://cvc.cs.yale.edu/cvc/projects/yalefacesB/yalefacesB.html y https://www.kaggle.com/datasets/hearfool/vggface2 
 
-Los programas utilizados para crear los modelos se encuentran dentro del directorio `models`:
-1. Máquinas de vectores soporte (SVM).
-2. Random forests.
-3. Perceptrones multi capa.
-4. Redes neuronales convolucionales.
-Para cada modelo primero se ha realizado un ajuste de hiperparámetros (*grid search*), seguida de una validación cruzada (*cross validation*).
+Dentro del directorio 'modelos' se encuentran las funciones usadas en los dos metodos basados en PCA junto con los 'main' donde se ejecutan, y también la red neuronal convolucional entrenada en su archivo respectivo. Asi los modelos usados son los siguientes:
+1. Eigenfaces
+2. Eigenfaces Bayesiano
+3. Redes neuronales convolucionales.
+Para cada modelo primero se ha realizado un ajuste de hiperparámetros, seguida de una validación cruzada.
 
-El directorio `models` contiene también los notebooks de Jupyter `Imagenes_entrenamiento.ipynb` y `Precisión_sensibilidad.ipynb` con los que se han generado los datos e imágenes utilizados en la sección de la memoria escrita que explica los resultados obtenidos.
+El la carpets 'resultados' se pueden ver las figuras consegidas tanto como en las validación cruzadas y ajustes de hiperparametros que se han hecho, como los resultados de exactitud y perdida conseguidos época a época en el caso del modelo de CNN.
 
 Finalmente, se ha construido una demo que permite probar el sistema que mejor ha funcionado, una red neuronal convolucional entrenada en la base de datos aumentada. Lo necesario para hacer funcionar esta aplicación está en el directorio `app`. La demo se ejecuta abriendo el notebook `Demo.ipynb` utilizando `voila`. El enlace de `Binder` que se puede encontrar al principio de este documento facilita ese proceso.
 
