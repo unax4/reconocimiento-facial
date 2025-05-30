@@ -13,7 +13,8 @@ Dentro del directorio `modelos` se encuentran las funciones usadas en los dos me
 1. Eigenfaces
 2. Eigenfaces Bayesiano
 3. Redes neuronales convolucionales.
-Para cada modelo primero se ha realizado un ajuste de hiperparámetros, seguida de una validación cruzada.
+Para cada modelo primero se ha realizado un ajuste de hiperparámetros, seguida de una validación cruzada. Las funciones usadas en los dos mñetodos basados en PCA se encuentran conjuntos en el archivo `eigenfaces_utils.py`, junto con la descripción detallada de lo que hace cada función. La dinamica descrita para llevar a cabo el reconocimiento se encuentra en los archivos `eigenfaces_main.py` y `eigenfaces_bayes_main.py`.
+Para la CNN se hace todo en un mismo archivo. Si el usuario quiere probar a entrenar la red se recomienda hacerlo en un servidor con GPUs dedicadas ya que sino el tiempo de ejecución sería muy largo.
 
 El la carpeta `resultados` se pueden ver las figuras consegidas tanto como en las validación cruzadas y ajustes de hiperparametros que se han hecho, como los resultados de exactitud y perdida conseguidos época a época en el caso del modelo de CNN.
 
@@ -34,4 +35,13 @@ keras                         2.11.0
 ipywidgets                    8.0.4
 ipycanvas                     0.13.2
 voila                         0.5.7
+```
+
+Para elaborar la interfaz gráfica del programa de reconocimiento en vivo, se han usado los siguientes paquetes:
+```
+Paquete                       Versión
+----------------------------- --------------
+numpy                         1.23.5
+scikit-learn                  1.2.0
+PyQt5                         5.15.9
 ```
