@@ -4,15 +4,13 @@ import shutil
 import mediapipe as mp
 from PIL import Image
 
-# -------- CONFIGURACIÓN -------- #
+
 output_path = "C:/Users/Unax/Desktop/LegacyTFG/Database/VGGFace"  # Base de datos original
-database_path = "D:/Universidad/TFG IE/Databases/Casia/train"  # Nueva base de datos con caras
+database_path = "D:/Universidad/TFG IE/Databases/VGG/train"  # Nueva base de datos con caras
 min_faces_required = 40  # Mínimo de imágenes necesarias para mantener a la persona
 
-# Cargar el detector de caras de MediaPipe
 mp_face_detection = mp.solutions.face_detection
 
-# -------- FUNCIONES -------- #
 def detectar_y_recortar_cara(image_path):
     """Detecta la cara en una imagen y devuelve solo la región de la cara."""
     try:
@@ -23,7 +21,6 @@ def detectar_y_recortar_cara(image_path):
         # Convertir a RGB (MediaPipe requiere imágenes en formato RGB)
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         
-        # Detectar caras con MediaPipe
         with mp_face_detection.FaceDetection(min_detection_confidence=0.2) as face_detection:
             results = face_detection.process(img_rgb)
 
@@ -53,7 +50,7 @@ def detectar_y_recortar_cara(image_path):
                     return face
 
     except Exception as e:
-        print(f"⚠️ Error procesando {image_path}: {e}")
+        print(f"Error procesando {image_path}: {e}")
         return None
 
 def procesar_database(database_path, output_path):
@@ -69,7 +66,7 @@ def procesar_database(database_path, output_path):
 
         os.makedirs(output_person_dir, exist_ok=True)
         images = [f for f in os.listdir(person_dir) if f.endswith(".jpg")]
-        face_count = 0  # Contador de caras detectadas por persona
+        face_count = 0 
 
         for img in images:
             img_path = os.path.join(person_dir, img)
@@ -86,12 +83,11 @@ def procesar_database(database_path, output_path):
         # Si la persona tiene menos de 40 imágenes con caras, eliminar su carpeta
         if face_count < min_faces_required:
             shutil.rmtree(output_person_dir, ignore_errors=True)
-            print(f"❌ Eliminado {person} (solo {face_count} caras detectadas)")
+            print(f"Eliminado {person} (solo {face_count} caras detectadas)")
         else:
-            print(f"✅ Guardado {person} ({face_count} caras detectadas)")
+            print(f"Guardado {person} ({face_count} caras detectadas)")
 
-    print("🎯 Base de datos reconstruida con solo caras válidas en:", output_path)
+    print("Base de datos reconstruida con solo caras válidas en:", output_path)
 
-# -------- EJECUTAR -------- #
 if __name__ == "__main__":
     procesar_database(database_path, output_path)
