@@ -22,7 +22,8 @@ El la carpeta `resultados` se pueden ver las figuras consegidas tanto como en la
 Por último, en el directorio raíz también se encentra el archivo con el que se lanza el programa de detección via web cam.
 
 ## Cuaderno
-En el directorio raiz se ha preparado el cuaderno de jupyter `modelos-reconocimiento-facial.ipynb`, donde se ve paso a paso como funcionan cada uno de los metodos. Además, para el caso de la CNN se ha incluido todo el proceso de entrenamiento de la red, y se puede observar época a época como evoluciona el aprendizaje, además de como se incluyen las capas, aumentación de datos, etc.
+En el directorio raiz se ha preparado el cuaderno de jupyter `modelos-reconocimiento-facial.ipynb`, donde se ve paso a paso como funcionan cada uno de los metodos.
+Aunque en realidad el cuaderno conste del codigo de los `main`, para el caso de la CNN se ha incluido todo el proceso de entrenamiento de la red, y se puede observar época a época como evoluciona el aprendizaje, además de como se incluyen las capas, aumentación de datos, etc.
 
 ## Paquetes necesarios
 
