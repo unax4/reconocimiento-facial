@@ -24,17 +24,14 @@ Por último, en el directorio raíz también se encentra el archivo con el que s
 
 En este trabajo se ha utilizado `Python 3.11.3`. Para el trabajo se han usado los siguientes paquetes:
 ```
-Paquete                       Versión
------------------------------ --------------
-matplotlib                    3.6.3
-numpy                         1.23.5
-pandas                        1.5.3
-scikit-learn                  1.2.0
-tensorflow                    2.12.0
+Paquete                       Versión 
+---------------------------- -------------- 
+matplotlib                    3.6.3 
+numpy                         1.23.5 
+pandas                        1.5.3 
+scikit-learn                  1.2.0 
+tensorflow                    2.12.0 
 keras                         2.11.0
-ipywidgets                    8.0.4
-ipycanvas                     0.13.2
-voila                         0.5.7
 ```
 
 Para elaborar la interfaz gráfica del programa de reconocimiento en vivo, se han usado los siguientes paquetes:
