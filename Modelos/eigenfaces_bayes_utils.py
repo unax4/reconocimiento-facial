@@ -6,6 +6,17 @@ from scipy.stats import multivariate_normal
 
 
 def load_images(database_path, training_ratio,image_size):
+    """
+    Loads images from a given database path and splits them into training and testing datasets.
+
+    Args:
+        database_path (str): Path to the folder containing image datasets.
+        training_ratio (float): Ratio of images to be used as training data.
+        image_size (tuple): Dimensions (width, height) of images.
+
+    Returns:
+        tuple: Four lists containing training images, training labels, testing images, and testing labels.
+    """
     train_images, train_labels, test_images, test_labels = [], [], [], []
     
     for folder in os.listdir(database_path):
@@ -27,19 +38,18 @@ def load_images(database_path, training_ratio,image_size):
     
     return train_images, train_labels, test_images, test_labels
 
+
 def compute_eigenfaces(train_images, image_size):
-    X = np.reshape(train_images, (len(train_images), image_size[0] * image_size[1]))
-    mean = np.mean(X, axis=0)
-    X_std = (X - mean).astype(np.float32)
+    """
+    Computes eigenfaces from training images.
 
+    Args:
+        train_images (list): List of training images.
+        image_size (tuple): Dimensions (width, height) of images.
 
-    U, S, Vt = np.linalg.svd(X_std, full_matrices=False)
-    eigenfaces = Vt
-
-    return eigenfaces, mean
-"""
-def compute_eigenfaces(train_images, image_size):
-    #Calcula las eigenfaces a partir de imágenes de entrenamiento.
+    Returns:
+        tuple: Eigenfaces as an array and the mean image.
+    """
     X = np.resize(train_images, (len(train_images), image_size[0] * image_size[1]))
     mean = np.mean(X, axis=0)
     X_std = X - mean
@@ -53,10 +63,22 @@ def compute_eigenfaces(train_images, image_size):
     eigenfaces = eigenvector_converted.T / np.sqrt((eigenvector_converted.T ** 2).sum(axis=1, keepdims=True))
 
     return eigenfaces, mean
-"""
+
+
 def project_images(images, mean, eigenfaces, num_components,image_size):
-    
-    #Proyecta imágenes en el espacio de eigenfaces.
+    """
+    Projects images into the eigenfaces space.
+
+    Args:
+        images (list): List of images to project.
+        mean (numpy.ndarray): Mean image used for centering.
+        eigenfaces (numpy.ndarray): Array of eigenfaces.
+        num_components (int): Number of eigenfaces to use for projection.
+        image_size (tuple): Dimensions (width, height) of images.
+
+    Returns:
+        list: Projections of the images in the eigenfaces space.
+    """
     projections = []
     for img in images:
         img_mean_centered = img.reshape(image_size[0] * image_size[1]) - mean #Aseguramos que la imagen zea point cero y de nuestra dimension
@@ -64,8 +86,18 @@ def project_images(images, mean, eigenfaces, num_components,image_size):
         projections.append(projection)
     return projections
 
+
 def calculate_class_statistics(trainE, train_labels):
-    #Calcula la media y la covarianza de las proyecciones para cada clase.
+    """
+    Calculates the mean and covariance of projections for each class.
+
+    Args:
+        trainE (list): Projections of training images in eigenfaces space.
+        train_labels (list): Labels for training images.
+
+    Returns:
+        tuple: Dictionary of class means and class covariances.
+    """
     class_means = {}
     class_covariances = {}
     unique_labels = np.unique(train_labels)
@@ -78,8 +110,22 @@ def calculate_class_statistics(trainE, train_labels):
     return class_means, class_covariances
 
 
-
 def predict_single_image_bayes(image, mean, eigenfaces, class_means, class_covariances, shape, num_components):
+    """
+    Predicts the class of a given image using Bayesian classification in the eigenfaces space.
+
+    Args:
+        image (numpy.ndarray): The input image to classify.
+        mean (numpy.ndarray): The mean image used for centering the data.
+        eigenfaces (numpy.ndarray): Array of eigenfaces used for dimensionality reduction.
+        class_means (dict): Dictionary containing the mean projections for each class.
+        class_covariances (dict): Dictionary containing the covariance matrices for each class.
+        shape (tuple): Dimensions (width, height) of the image.
+        num_components (int): Number of eigenfaces to use for projection.
+
+    Returns:
+        tuple: Predicted class label and a dictionary of probabilities for each class.
+    """
     image = Image.fromarray(image).resize(shape)
     img_mean_centered = np.array(image).reshape(shape[0] * shape[1]) - mean
     img_projection = eigenfaces[:num_components].dot(img_mean_centered)

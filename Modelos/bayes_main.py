@@ -1,6 +1,6 @@
 import numpy as np
-from eigenfaces_bayes_utils import load_images, compute_eigenfaces, project_images, calculate_class_statistics, predict_single_image_bayes
-from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
+from eigenfaces_utils import load_images, compute_eigenfaces, project_images, calculate_class_statistics, predict_single_image_bayes
+from sklearn.metrics import classification_report, accuracy_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -61,39 +61,12 @@ top5_accuracy = top5_hits / len(actual_labels)
 print(f"\nAccuracy: {accuracy * 100:.2f}%")
 print(f"TOP-3 Accuracy: {top3_accuracy * 100:.2f}%")
 print(f"TOP-5 Accuracy: {top5_accuracy * 100:.2f}%")
-# Generar matriz de confusión
-cm = confusion_matrix(actual_labels, predicted_labels)
-print("\nMatriz de confusión:")
-print(cm)
 
-# Generar reporte de clasificación (incluye precision, recall, f1-score)
+
+# Generar reporte de clasificación (precision, recall, f1-score)
 print("\nReporte de clasificación:")
 print(classification_report(actual_labels, predicted_labels))
 
-# Visualizar matriz de confusión
-plt.figure(figsize=(10, 8))
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-plt.title('Matriz de Confusión')
-plt.ylabel('Etiqueta Real')
-plt.xlabel('Etiqueta Predicha')
-plt.show()
-
-# Calcular métricas adicionales
-def calculate_metrics(cm):
-    if cm.shape[0] == 2:  # Para clasificación binaria
-        tn, fp, fn, tp = cm.ravel()
-        sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
-        specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
-        false_positive_rate = fp / (fp + tn) if (fp + tn) > 0 else 0
-        
-        print(f"\nMétricas adicionales:")
-        print(f"Sensibilidad (Recall): {sensitivity:.4f}")
-        print(f"Especificidad: {specificity:.4f}")
-        print(f"Tasa de Falsos Positivos: {false_positive_rate:.4f}")
-    else:
-        print("\nMétricas detalladas disponibles en el reporte de clasificación")
-
-calculate_metrics(cm)
 
 '''# Inicializar listas para almacenar las precisiones
 train_accuracies = []

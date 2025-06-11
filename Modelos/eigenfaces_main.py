@@ -1,6 +1,6 @@
 import numpy as np
 from eigenfaces_utils import load_images, compute_eigenfaces, project_images, predict_single_image
-from sklearn.metrics import confusion_matrix, classification_report, accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 
