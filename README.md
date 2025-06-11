@@ -28,12 +28,15 @@ En este trabajo se ha utilizado `Python 3.11.3`. Para el trabajo se han usado lo
 ```
 Paquete                       Versión 
 ---------------------------- -------------- 
-matplotlib                    3.6.3 
-numpy                         1.23.5 
+matplotlib                    3.8.0 
+numpy                         1.23.5
 pandas                        1.5.3 
-scikit-learn                  1.2.0 
+scikit-learn                  1.2.0
 tensorflow                    2.12.0 
-keras                         2.11.0
+keras                         2.11.0 
+opencv-python                 4.8.0 
+scipy                         1.11.2 
+mediapipe                     0.10.3 
 ```
 
 Para elaborar la interfaz gráfica del programa de reconocimiento en vivo, se han usado los siguientes paquetes:
