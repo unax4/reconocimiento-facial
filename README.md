@@ -35,15 +35,15 @@ camara_haar.py
 
 models
 
-   &ensp; --eigenfaces_utils.py
+   &ensp; &emsp; --eigenfaces_utils.py
 
 BD_Camara
 
-   --sujeto1
+   &emsp; &emsp; --sujeto1
 
-   --sujeto2
+   &emsp; &emsp; --sujeto2
 
-   ...
+   &emsp; &emsp; ...
 
 ## Paquetes necesarios
 
