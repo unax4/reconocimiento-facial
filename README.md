@@ -19,11 +19,18 @@ Para la CNN se hace todo en un mismo archivo. Si el usuario quiere probar a entr
 
 El la carpeta `resultados` se pueden ver las figuras consegidas tanto como en las validación cruzadas y ajustes de hiperparametros que se han hecho, como los resultados de exactitud y perdida conseguidos época a época en el caso del modelo de CNN.
 
-Por último, en el directorio raíz también se encentra el archivo con el que se lanza el programa de detección via web cam.
+## Detección en vivo
+
+También en el directorio raiz, se encuentran los archivos `camara_haar.py` y `camara_mp.py`, que pertenecen a la aplicación grafica de identificación facial creada para el trabajo, con la única diferencia del modelo de detección de caras usado en ellos; en el primero se usa el detector Haar Cascade, y en el segundo el más avanzado Mediapipe. Para un correcto funcionamiento del programa tambien hay que descargar el archivo de `eigenfaces_utils.py`, ya que el programa hace uso de él para llevar a cabo la identificación.
+
+Si se quiere usar la misma base de datos que la del anexo, también se puede descargar desde el directorio raiz, para a partir de ella añadir los sujetos que se quieran y probar a identificarlos usando el archivo de python.
 
 ## Cuaderno
 En el directorio raiz se ha preparado el cuaderno de jupyter `modelos-reconocimiento-facial.ipynb`, donde se ve paso a paso como funcionan cada uno de los metodos.
 Aunque en realidad el cuaderno conste del codigo de los `main`, para el caso de la CNN se ha incluido todo el proceso de entrenamiento de la red, y se puede observar época a época como evoluciona el aprendizaje, además de como se incluyen las capas, aumentación de datos, etc.
+En definitiva, para poder lanzar la aplicación el directorio debedería de tener la siguiente forma:
+
+camera_mp.py
 
 ## Paquetes necesarios
 
@@ -39,14 +46,18 @@ tensorflow                    2.12.0
 keras                         2.11.0 
 opencv-python                 4.8.0 
 scipy                         1.11.2 
-mediapipe                     0.10.3 
+mediapipe                     0.9.1 
 ```
 
-Para elaborar la interfaz gráfica del programa de reconocimiento en vivo, se han usado los siguientes paquetes, por lo que si se quiere probar a ejecutarlo sería suficiente con descargar solo estos:
+Para elaborar la interfaz gráfica del programa de reconocimiento en vivo, se han usado los siguientes paquetes, por lo que si se quiere probar a ejecutarlo sería suficiente con descargar solo estos. Dependiendo del metodo de detecció de caras a usar, habrá que descargar la librería open cv o la de mediapipe:
 ```
 Paquete                       Versión
 ----------------------------- --------------
 numpy                         1.23.5
 scikit-learn                  1.2.0
 PyQt5                         5.15.9
+
+opencv-python                 4.8.0
+
+mediapipe                     0.9.1
 ```
