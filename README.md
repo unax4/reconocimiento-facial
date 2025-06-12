@@ -30,7 +30,20 @@ En el directorio raiz se ha preparado el cuaderno de jupyter `modelos-reconocimi
 Aunque en realidad el cuaderno conste del codigo de los `main`, para el caso de la CNN se ha incluido todo el proceso de entrenamiento de la red, y se puede observar época a época como evoluciona el aprendizaje, además de como se incluyen las capas, aumentación de datos, etc.
 En definitiva, para poder lanzar la aplicación el directorio debedería de tener la siguiente forma:
 
-camera_mp.py
+camara_mp.py
+camara_haar.py
+
+models
+
+   --eigenfaces_utils.py
+
+BD_Camara
+
+   --sujeto1
+
+   --sujeto2
+
+   ...
 
 ## Paquetes necesarios
 
