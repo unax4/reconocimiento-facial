@@ -35,7 +35,7 @@ camara_haar.py
 
 models
 
-   --eigenfaces_utils.py
+   &ensp; --eigenfaces_utils.py
 
 BD_Camara
 
