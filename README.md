@@ -25,9 +25,6 @@ También en el directorio raiz, se encuentran los archivos `camara_haar.py` y `c
 
 Si se quiere usar la misma base de datos que la del anexo, también se puede descargar desde el directorio raiz, para a partir de ella añadir los sujetos que se quieran y probar a identificarlos usando el archivo de python.
 
-## Cuaderno
-En el directorio raiz se ha preparado el cuaderno de jupyter `modelos-reconocimiento-facial.ipynb`, donde se ve paso a paso como funcionan cada uno de los metodos.
-Aunque en realidad el cuaderno conste del codigo de los `main`, para el caso de la CNN se ha incluido todo el proceso de entrenamiento de la red, y se puede observar época a época como evoluciona el aprendizaje, además de como se incluyen las capas, aumentación de datos, etc.
 En definitiva, para poder lanzar la aplicación el directorio debedería de tener la siguiente forma:
 
 camara_mp.py
@@ -44,6 +41,11 @@ BD_Camara
    &emsp; &emsp; --sujeto2
 
    &emsp; &emsp; ...
+
+
+## Cuaderno
+En el directorio raiz se ha preparado el cuaderno de jupyter `modelos-reconocimiento-facial.ipynb`, donde se ve paso a paso como funcionan cada uno de los metodos.
+Aunque en realidad el cuaderno conste del codigo de los `main`, para el caso de la CNN se ha incluido todo el proceso de entrenamiento de la red, y se puede observar época a época como evoluciona el aprendizaje, además de como se incluyen las capas, aumentación de datos, etc.
 
 ## Paquetes necesarios
 
