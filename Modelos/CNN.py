@@ -9,11 +9,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 #Carga imagenes
-#data = np.load("C:/Users/Unax/Desktop/LegacyTFG/Database/augmediapipe2.npz")
-#train_images, test_images, train_labels, test_labels = data["train_images"], data["test_images"],data["train_labels"],data["test_labels"]
-data = np.load("C:/Users/Unax/Desktop/LegacyTFG/Database/casiafull.npz")
-train_images, test_images, train_labels, test_labels = data["train_images"], data["test_images"],data["train_labels"],data["test_labels"]
-database_path = "C:/Users/Unax/Desktop/LegacyTFG/Database/CasiaCropped"
+database_path = "path/BD"
 image_size = (130, 130) #Alto ancho en PIL, ancho alto numpy
 training_ratio=0.8
 input_shape = (image_size[0], image_size[1], 1)  # Canal único (escala de grises)
