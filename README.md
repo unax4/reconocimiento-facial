@@ -28,6 +28,7 @@ Si se quiere usar la misma base de datos que la del anexo, también se puede des
 En definitiva, para poder lanzar la aplicación el directorio debedería de tener la siguiente forma:
 
 camara_mp.py
+
 camara_haar.py
 
 models
