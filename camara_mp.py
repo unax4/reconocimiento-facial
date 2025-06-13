@@ -47,7 +47,7 @@ def load_images(database_path, training_ratio, image_size):
 class FaceRecognitionApp(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("FAplicación de Reconocimiento Facial")
+        self.setWindowTitle("Aplicación de Reconocimiento Facial")
         self.setGeometry(100, 100, 800, 600)
 
         self.database_path = "BD_camara" 
