@@ -9,12 +9,12 @@ En el directorio raiz se encuentra el archivo `mediapipe_facedetector.py`, que e
 
 El directorio `BD_camara` solo está la base de datos usada en la cámara, debido a que las que se usan en el trabajo son de tamaño demasiado grande. Estas en cambio se pueden descargar en los siguientes enlaces: http://cvc.cs.yale.edu/cvc/projects/yalefacesB/yalefacesB.html y https://www.kaggle.com/datasets/hearfool/vggface2 
 
-Dentro del directorio `modelos` se encuentran las funciones usadas en los dos metodos basados en PCA junto con los `main` donde se ejecutan, y también la red neuronal convolucional entrenada en su archivo respectivo. Asi los modelos usados son los siguientes:
+Dentro del directorio `modelos` se encuentran las funciones usadas en los dos metodos basados en PCA junto con los `main` donde se ejecutan, y también el programa a partir del cual se entrenó la red neuronal convolucional. Asi los modelos usados son los siguientes:
 1. Eigenfaces
 2. Eigenfaces Bayesiano
 3. Redes neuronales convolucionales.
    
-Para cada modelo primero se ha realizado un ajuste de hiperparámetros, seguida de una validación cruzada. Las funciones usadas en los dos metodos basados en PCA se encuentran conjuntos en el archivo `eigenfaces_utils.py`, junto con la descripción detallada de lo que hace cada función. La dinamica descrita para llevar a cabo el reconocimiento se encuentra en los archivos `eigenfaces_main.py` y `bayes_main.py`.
+Para cada modelo de PCA primero se ha realizado una validación cruzada. Las funciones usadas en los dos metodos basados en PCA se encuentran conjuntos en el archivo `eigenfaces_utils.py`, junto con la descripción detallada de lo que hace cada función. La dinamica descrita para llevar a cabo el reconocimiento se encuentra en los archivos `eigenfaces_main.py` y `bayes_main.py`.
 Para la CNN se hace todo en un mismo archivo. Si el usuario quiere probar a entrenar la red se recomienda hacerlo en un servidor con GPUs dedicadas ya que sino el tiempo de ejecución sería muy largo.
 
 El la carpeta `resultados` se pueden ver las figuras consegidas tanto como en las validación cruzadas y ajustes de hiperparametros que se han hecho, como los resultados de exactitud y perdida conseguidos época a época en el caso del modelo de CNN.
@@ -56,7 +56,6 @@ Paquete                       Versión
 ---------------------------- -------------- 
 matplotlib                    3.8.0 
 numpy                         1.23.5
-pandas                        1.5.3 
 scikit-learn                  1.2.0
 tensorflow                    2.12.0 
 keras                         2.11.0 
