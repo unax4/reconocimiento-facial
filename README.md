@@ -3,8 +3,9 @@
 Este repositorio complementa mi Trabajo de Fin de Grado, que ha consistido en entrenar varios **modelos de aprendizaje automático** para que sean capaces de clasificar imágenes de caras. Se han utilizado dos bases de datos, la de YaleB, con solo 37 clases  y 2480 fotos, siendo la más pequeña, y una versión adaptada de VGGFaces2, con un total de 534 clases y 94600 muestras en total, siendo además esta última base de datos desequilibrada.
 Para dar una aplicación práctica a los modelos ademas se ha desarrollado un programa con una interfaz gráfica capaz de hacer reconocimiento facial en vivo mediante el uso de una camara. La interfaz además permite editar la base de datos, añadir nuevas clases y elegir entre los dos modelos de PCA para ver cual funciona mejor. Como ejemplo se ha añadido una base de datos para uso exclusivo de la cámara donde ya hay añadidas unas 40 clases, por lo que el usuario puede añadir a esta fotos suyas para ver si los modelos son capaz de reconocerle.
 
+<p align="center">
 <img width="590" alt="Celebrity" src="https://github.com/user-attachments/assets/7048461f-d1c8-4f0d-9886-70818616bc42" />
-
+</p>
 
 ## Uso
 
