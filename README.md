@@ -48,6 +48,12 @@ BD_Camara
    &emsp; &emsp; ...
 
 
+Aqui un ejemplo de uso del programa donde se identifica como deconocido a Max Planck, que es correcto ya que no está presente en la base de datos:
+
+<p align="center">
+![image](https://github.com/user-attachments/assets/faceaa10-36d3-4bab-ac46-73f6cde7414d)
+</p>
+
 ## Cuaderno
 En el directorio raiz se ha preparado el cuaderno de jupyter `modelos-reconocimiento-facial.ipynb`, donde se ve paso a paso como funcionan cada uno de los metodos.
 Aunque en realidad el cuaderno conste del codigo de los `main`, para el caso de la CNN se ha incluido todo el proceso de entrenamiento de la red, y se puede observar época a época como evoluciona el aprendizaje, además de como se incluyen las capas, aumentación de datos, etc.
