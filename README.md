@@ -51,7 +51,8 @@ BD_Camara
 Aqui un ejemplo de uso del programa donde se identifica como deconocido a Max Planck, que es correcto ya que no está presente en la base de datos:
 
 <p align="center">
-<img https://github-production-user-asset-6210df.s3.amazonaws.com/131610168/455271552-faceaa10-36d3-4bab-ac46-73f6cde7414d.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250615%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250615T162029Z&X-Amz-Expires=300&X-Amz-Signature=b0c0e536888cddd2e34215d0b898a4cd05f46912365a21ff1f3aa8224cde39ab&X-Amz-SignedHeaders=host />
+![image](https://github.com/user-attachments/assets/fd9d8df8-bdb5-400d-b5e5-86b40d11fe62)
+
 </p>
 
 ## Cuaderno
