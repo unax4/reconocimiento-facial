@@ -63,21 +63,21 @@ class FaceRecognitionApp(QtWidgets.QMainWindow):
 
         self.load_model()
 
-        # Main widget and layout
+        # Widget principal y diseño
         self.central_widget = QtWidgets.QWidget()
         self.setCentralWidget(self.central_widget)
         self.main_layout = QtWidgets.QVBoxLayout(self.central_widget)
 
-        # Webcam display
+        # Visualización de la cámara
         self.video_label = QtWidgets.QLabel()
         self.video_label.setMinimumSize(640, 480)
         self.main_layout.addWidget(self.video_label)
 
-        # Control panel
+        # Panel de control
         self.control_layout = QtWidgets.QHBoxLayout()
         self.main_layout.addLayout(self.control_layout)
 
-        # Model selection
+        # Selección de modelo
         self.model_group = QtWidgets.QGroupBox("Selección de Modelo")
         self.model_layout = QtWidgets.QHBoxLayout()
         self.model_group.setLayout(self.model_layout)
@@ -90,7 +90,7 @@ class FaceRecognitionApp(QtWidgets.QMainWindow):
         self.bayesian_radio.toggled.connect(self.update_model)
         self.pca_radio.toggled.connect(self.update_model)
 
-        # Components selection
+        # Selección de componentes
         self.components_group = QtWidgets.QGroupBox("Número de Componentes")
         self.components_layout = QtWidgets.QHBoxLayout()
         self.components_group.setLayout(self.components_layout)
@@ -105,10 +105,10 @@ class FaceRecognitionApp(QtWidgets.QMainWindow):
         self.control_layout.addWidget(self.components_group)
         self.apply_components_button.clicked.connect(self.update_components)
 
-        # Buttons
+        # Botones
         self.button_layout = QtWidgets.QHBoxLayout()
         self.main_layout.addLayout(self.button_layout)
-        self.launch_button = QtWidgets.QPushButton("Iniziar Cámara")
+        self.launch_button = QtWidgets.QPushButton("Iniciar Cámara")
         self.manage_db_button = QtWidgets.QPushButton("Gestionar Base de Datos")
         self.button_layout.addWidget(self.launch_button)
         self.button_layout.addWidget(self.manage_db_button)
