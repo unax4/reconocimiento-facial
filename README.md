@@ -48,12 +48,6 @@ BD_Camara
    &emsp; &emsp; ...
 
 
-Aqui un ejemplo de uso del programa donde se identifica como deconocido a Max Planck, que es correcto ya que no está presente en la base de datos:
-
-<p align="center">
-![455271689-fd9d8df8-bdb5-400d-b5e5-86b40d11fe62](https://github.com/user-attachments/assets/b62b932f-0f41-41f2-9ba8-6958db87c5dd)
-
-</p>
 
 ## Cuaderno
 En el directorio raiz se ha preparado el cuaderno de jupyter `modelos-reconocimiento-facial.ipynb`, donde se ve paso a paso como funcionan cada uno de los metodos.
