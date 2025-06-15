@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Configuración
-database_path = "C:/Users/Unax/Desktop/LegacyTFG/Database/AugmentedMediapipe_filtered"
-image_size = (192, 168) #Alto ancho en PIL, ancho alto numpy
+database_path = "C:/Users/Unax/Desktop/LegacyTFG/Database/yaleB"
+image_size = (192, 168)
 num_components = 30 
 training_ratio=0.8
 # Cargar imágenes
@@ -66,53 +66,3 @@ print(f"TOP-5 Accuracy: {top5_accuracy * 100:.2f}%")
 # Generar reporte de clasificación (precision, recall, f1-score)
 print("\nReporte de clasificación:")
 print(classification_report(actual_labels, predicted_labels))
-
-
-'''# Inicializar listas para almacenar las precisiones
-train_accuracies = []
-test_accuracies = []
-
-# Rango de valores para num_components
-num_components_range = range(1, 80,10)  # Ajusta el rango según lo que necesites
-
-# Evaluar el modelo para cada número de componentes
-for num_components in num_components_range:
-    # Proyectar las imágenes de entrenamiento
-    trainE = project_images(train_images, mean, eigenfaces, num_components, image_size)
-    
-    # Calcular estadísticas de las clases (medias y covarianzas)
-    class_means, class_covariances = calculate_class_statistics(trainE, train_labels)
-    
-    # Predicciones en el conjunto de entrenamiento
-    predicted_train_labels = []
-    for img in train_images:
-        predicted_label = predict_single_image_bayes(img, mean, eigenfaces, class_means, class_covariances, image_size, num_components)
-        predicted_train_labels.append(predicted_label)
-
-    # Calcular la precisión en el conjunto de entrenamiento
-    train_accuracy = accuracy_score(train_labels, predicted_train_labels)
-    train_accuracies.append(train_accuracy)
-
-    # Predicciones en el conjunto de prueba
-    predicted_test_labels = []
-    for img in test_images:
-        predicted_label = predict_single_image_bayes(img, mean, eigenfaces, class_means, class_covariances, image_size, num_components)
-        predicted_test_labels.append(predicted_label)
-
-    # Calcular la precisión en el conjunto de prueba
-    test_accuracy = accuracy_score(test_labels, predicted_test_labels)
-    test_accuracies.append(test_accuracy)
-
-    print(f"num_components: {num_components} | Train Accuracy: {train_accuracy:.4f} | Test Accuracy: {test_accuracy:.4f}")
-
-# Graficar los resultados
-plt.figure(figsize=(10, 6))
-plt.plot(num_components_range, train_accuracies, label='Train Accuracy', color='blue', marker='o')
-plt.plot(num_components_range, test_accuracies, label='Test Accuracy', color='red', marker='o')
-
-plt.title('Accuracy vs Number of Components (Bayes Eigenfaces)')
-plt.xlabel('Number of Components')
-plt.ylabel('Accuracy')
-plt.legend()
-plt.grid(True)
-plt.show()'''
