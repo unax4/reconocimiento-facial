@@ -64,7 +64,7 @@ scipy                         1.11.2
 mediapipe                     0.9.1 
 ```
 
-Para elaborar la interfaz gráfica del programa de reconocimiento en vivo, se han usado los siguientes paquetes, por lo que si se quiere probar a ejecutarlo sería suficiente con descargar solo estos. Dependiendo del metodo de detecció de caras a usar, habrá que descargar la librería open cv o la de mediapipe:
+Para elaborar la interfaz gráfica del programa de reconocimiento en vivo, se han usado los siguientes paquetes, por lo que si se quiere probar a ejecutarlo sería suficiente con descargar solo estos. Dependiendo del metodo de detección de caras a usar, habrá que descargar la librería open cv o la de mediapipe:
 ```
 Paquete                       Versión
 ----------------------------- --------------
