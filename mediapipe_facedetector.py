@@ -16,9 +16,9 @@ def detectar_y_recortar_cara(image_path):
     try:
         img = cv2.imread(image_path)
         if img is None:
-            return None  # Si la imagen no se puede leer, la ignoramos
+            return None
         
-        # Convertir a RGB (MediaPipe requiere imágenes en formato RGB)
+        # MediaPipe requiere imágenes en formato RGB
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         
         with mp_face_detection.FaceDetection(min_detection_confidence=0.2) as face_detection:
@@ -28,14 +28,12 @@ def detectar_y_recortar_cara(image_path):
                 for detection in results.detections:
                     bboxC = detection.location_data.relative_bounding_box
                     h, w, _ = img.shape
-                    
-                    # Obtener coordenadas del bounding box (convertido a píxeles)
+
                     x_min = int(bboxC.xmin * w)
                     y_min = int(bboxC.ymin * h)
                     box_width = int(bboxC.width * w)
                     box_height = int(bboxC.height * h)
 
-                    # Ajustar coordenadas para evitar bordes negativos
                     x_min = max(0, x_min)
                     y_min = max(0, y_min)
                     x_max = min(w, x_min + box_width)
@@ -45,7 +43,7 @@ def detectar_y_recortar_cara(image_path):
                     face = img[y_min:y_max, x_min:x_max]
 
                     if face.size == 0:
-                        return None  # Si el recorte está vacío, ignoramos la imagen
+                        return None
                     
                     return face
 
@@ -74,13 +72,12 @@ def procesar_database(database_path, output_path):
             
             if face is not None:
                 h, w = face.shape[:2]  # Obtener dimensiones de la cara detectada
-                if h >= 100 and w >= 100:  # Verificar tamaño mínimo
+                if h >= 100 and w >= 100:
                     save_path = os.path.join(output_person_dir, img)
                     face_pil = Image.fromarray(cv2.cvtColor(face, cv2.COLOR_BGR2RGB))
                     face_pil.save(save_path)
-                    face_count += 1  # Incrementar contador de caras detectadas
+                    face_count += 1
 
-        # Si la persona tiene menos de 40 imágenes con caras, eliminar su carpeta
         if face_count < min_faces_required:
             shutil.rmtree(output_person_dir, ignore_errors=True)
             print(f"Eliminado {person} (solo {face_count} caras detectadas)")
