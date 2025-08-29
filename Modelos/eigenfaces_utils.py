@@ -84,7 +84,7 @@ def project_images(images, mean, eigenfaces, num_components, image_size):
     projections = []
     for img in images:
         img_mean_centered = img.reshape(image_size[0] * image_size[1]) - mean
-        projection = eigenfaces[:num_components].dot(img_mean_centered)
+        projection = eigenfaces[:num_components] @ img_mean_centered
         projections.append(projection)
     return projections
 
@@ -168,3 +168,4 @@ def predict_single_image_bayes(image, mean, eigenfaces, class_means, class_covar
         probabilities[label] = multivariate_normal.logpdf(img_projection, mean=class_means[label], cov=class_covariances[label], allow_singular=True)
 
     return max(probabilities, key=probabilities.get),probabilities
+
