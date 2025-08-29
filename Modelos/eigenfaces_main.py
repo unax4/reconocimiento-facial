@@ -6,22 +6,22 @@ import seaborn as sns
 
 training_ratio = 0.8
 image_size = (192, 168) #yaleB
-num_components = 150 "
+num_components = 150
 database_path="C:/Users/Unax/Desktop/LegacyTFG/Database/yaleB"
 # Cargar imágenes
-#train_images, train_labels, test_images, test_labels = load_images(database_path, training_ratio, image_size)
+train_images, train_labels, test_images, test_labels = load_images(database_path, training_ratio, image_size)
 #np.savez_compressed("C:/Users/Unax/Desktop/LegacyTFG/Database/yaleB.npz",train_images=train_images,train_labels=train_labels,test_images=test_images,test_labels=test_labels)
-data = np.load("C:/Users/Unax/Desktop/LegacyTFG/Database/yaleB.npz")
-train_images, test_images, train_labels, test_labels = data["train_images"], data["test_images"],data["train_labels"],data["test_labels"]
+#data = np.load("C:/Users/Unax/Desktop/LegacyTFG/Database/yaleB.npz")
+#train_images, test_images, train_labels, test_labels = data["train_images"], data["test_images"],data["train_labels"],data["test_labels"]
 train_images, test_images = np.array(train_images), np.array(test_images)
 
 print("Carga finalizada") 
 
 # Calcular eigenfaces
-#eigenfaces, mean= compute_eigenfaces(train_images, image_size)
+eigenfaces, mean= compute_eigenfaces(train_images, image_size)
 #np.savez_compressed("C:/Users/Unax/Desktop/LegacyTFG/Database/eigenfaces_yaleB.npz", eigenfaces=eigenfaces, mean=mean)
-data = np.load("C:/Users/Unax/Desktop/LegacyTFG/Database/eigenfaces_yaleB.npz")
-eigenfaces,mean=data["eigenfaces"], data["mean"]
+#data = np.load("C:/Users/Unax/Desktop/LegacyTFG/Database/eigenfaces_yaleB.npz")
+#eigenfaces,mean=data["eigenfaces"], data["mean"]
 print("Entrenamiento finalizado") 
 # Proyectar imágenes de entrenamiento
 trainE = project_images(train_images, mean, eigenfaces, num_components, image_size)
@@ -42,10 +42,11 @@ print(test_accuracy)
 # Calcular métricas
 accuracy = np.mean(np.array(predicted_labels) == np.array(actual_labels))
 print(f"\nExactitud: {accuracy * 100:.2f}%")
-precision = precision_score(actual_labels, predicted_labels, average='weighted', zero_division=0)
+precision = precision_score(actual_labels, predicted_labels, zero_division=0)
 recall = recall_score(actual_labels, predicted_labels, average='weighted', zero_division=0)
 f1 = f1_score(actual_labels, predicted_labels, average='weighted')
 
 print(f"Precisión: {precision * 100:.2f}%")
 print(f"Sensibilidad: {recall * 100:.2f}%")
 print(f"Valor F!: {f1 * 100:.2f}%")
+
