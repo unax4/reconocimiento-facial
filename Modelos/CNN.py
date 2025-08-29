@@ -10,10 +10,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 #Carga imagenes
 database_path = "path/BD"
-image_size = (130, 130) #Alto ancho en PIL, ancho alto numpy
 training_ratio=0.8
-input_shape = (image_size[0], image_size[1], 1)  # Canal único (escala de grises)
-#train_images, train_labels, test_images, test_labels = load_images(database_path, training_ratio, image_size)
+train_images, train_labels, test_images, test_labels = load_images(database_path, training_ratio, image_size)
 
 # Preprocesamiento de imágenes
 image_size = (130, 130)
@@ -37,7 +35,7 @@ test_labels = keras.utils.to_categorical(test_labels, num_classes)
 
 # Dividir entrenamiento en train y validación
 X_train, X_val, y_train, y_val = train_test_split(
-    train_images, train_labels, test_size=0.2, stratify=train_labels, random_state=42
+    train_images, train_labels, test_size=0.2, stratify=train_labels, random_state=1
 )
 
 # Modelo CNN
@@ -50,6 +48,7 @@ model = keras.models.Sequential([
     layers.MaxPooling2D((2, 2)),
     layers.Conv2D(512, (3, 3), activation='relu', padding='same'),
     layers.MaxPooling2D((2, 2)),
+
     layers.Flatten(),
     layers.Dense(512, activation='relu'),
     layers.Dropout(0.5),
@@ -106,3 +105,4 @@ plt.xlabel('Época')
 plt.ylabel('Pérdida')
 plt.legend()
 plt.show()
+
